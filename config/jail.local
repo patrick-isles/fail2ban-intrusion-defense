@@ -1,0 +1,21 @@
+[DEFAULT]
+ignoreip = 127.0.0.1/8 ::1 192.168.122.1
+bantime  = 1h
+findtime = 10m
+maxretry = 3
+bantime.increment = true
+backend = systemd
+banaction = ufw
+banaction_allports = ufw
+
+[sshd]
+enabled  = true
+port     = 22
+mode     = aggressive
+maxretry = 3
+
+[nginx-botsearch]
+enabled  = true
+port     = http,https
+logpath  = /var/log/nginx/access.log
+maxretry = 2
